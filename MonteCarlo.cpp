@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Plain Monte Carlo Simulation to compute European option price and Greeks.
 vector<double> EuropeanMCPricer(Option o, long int N, double TimeDiff, double S, double t){
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;
@@ -102,9 +103,9 @@ double EuropeanMCAVPricer(Option o, long int N, double TimeDiff, double S, doubl
     return VSum / (2 * N);
 }
 
-
+// MC with Moment Matching.
 double EuropeanMCMMPricer(Option o, long int N, double TimeDiff, double S, double t){
-    // Use Z and 1 - Z in each time step to generate corresponding paths.
+    // Collect a bunch of asset prices, reweight them and compute average payoff.
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;
     double td = 0;
