@@ -5,10 +5,10 @@
 double r; // risk-free rate
 
 // Asset related
-double q; // 
-double sig;
+double q; // dividend yield
+double sig; // variance of asset
 
-// Unitily functions
+// Utility functions
 double normal_generator();
 
 #endif

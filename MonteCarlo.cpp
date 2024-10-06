@@ -3,7 +3,7 @@
 using namespace std;
 
 // Plain Monte Carlo Simulation to compute European option price and Greeks.
-vector<double> EuropeanMCPricer(Option o, long int N, double TimeDiff, double S, double t){
+vector<double> EuropeanMCPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t){
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;
     double td = 0;
@@ -38,7 +38,7 @@ vector<double> EuropeanMCPricer(Option o, long int N, double TimeDiff, double S,
 }
 
 // MC with Control Variate Technique. 
-double EuropeanMCCVPricer(Option o, long int N, double TimeDiff, double S, double t){
+double EuropeanMCCVPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t){
     // Use known unbiased estimator of S to reduce variance.
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;
@@ -76,7 +76,7 @@ double EuropeanMCCVPricer(Option o, long int N, double TimeDiff, double S, doubl
 }
 
 // MC with Antithetic Variates.
-double EuropeanMCAVPricer(Option o, long int N, double TimeDiff, double S, double t){
+double EuropeanMCAVPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t){
     // Use Z and 1 - Z in each time step to generate corresponding paths.
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;
@@ -104,7 +104,7 @@ double EuropeanMCAVPricer(Option o, long int N, double TimeDiff, double S, doubl
 }
 
 // MC with Moment Matching.
-double EuropeanMCMMPricer(Option o, long int N, double TimeDiff, double S, double t){
+double EuropeanMCMMPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t){
     // Collect a bunch of asset prices, reweight them and compute average payoff.
     double tau = o.Get_T() - t;
     int M = tau / TimeDiff;

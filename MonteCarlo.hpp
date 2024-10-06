@@ -12,13 +12,13 @@ using namespace std;
 #define MonteCarlo;
 
 // Plain Monte Carlo Simulation to compute European option price and Greeks.
-vector<double> EuropeanMCPricer(Option o, long int N, double TimeDiff, double S, double t);
+vector<double> EuropeanMCPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t);
 // MC with Control Variate Technique. 
-double EuropeanMCCVPricer(Option o, long int N, double TimeDiff, double S, double t);
+double EuropeanMCCVPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t);
 // MC with Antithetic Variates.
-double EuropeanMCAVPricer(Option o, long int N, double TimeDiff, double S, double t);
+double EuropeanMCAVPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t);
 // MC with Moment Matching.
-double EuropeanMCMMPricer(Option o, long int N, double TimeDiff, double S, double t);
+double EuropeanMCMMPricer(EuropeanOption o, long int N, double TimeDiff, double S, double t);
 
 
 
