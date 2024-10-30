@@ -49,8 +49,9 @@ class EuropeanOption: public Option{
 
         // Black-Scholes Model
         double BSPrice(double S, double t);
-        double BSBeta(double S, double t);
+        double BSDelta(double S, double t);
         double BSGamma(double S, double t);
+        double BSVega(double S, double t);
         double BSTheta(double S, double t);
 };
 
